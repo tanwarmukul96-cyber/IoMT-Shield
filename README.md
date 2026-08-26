@@ -23,57 +23,54 @@ The architecture is designed to evolve toward deeper network inspection, behavio
 ## Architecture
 
 ```text
-                 External / Hospital Network
-                           |
-                           v
-                  +-------------------+
-                  |    IoMT-Shield    |
-                  |      Gateway      |
-                  +---------+---------+
-                            |
-                    +-------+-------+
-                    |               |
-                    v               v
-              Policy Engine    Security Logs
-                    |
-               +----+----+
-               |         |
-             ALLOW      ALERT
-               |
-               v
-        Simulated Medical
-             Service
-               ^
-               |
-       Patient Monitor
-          Simulator
-          
+External / Hospital Network
+        |
+        v
+IoMT-Shield Gateway
+        |
+        v
+Policy Engine
+        |
+   +----+----+
+   |         |
+ ALLOW      ALERT
+   |         
+   v
+Simulated Medical Service
+   ^
+   |
+Patient Monitor
+Simulator
+
+```md
 
 ## Current Capabilities
-External security gateway for IoMT environments
-Go-based gateway and policy engine
-Medical-device telemetry simulation
-JSON telemetry validation
-Device identity validation
-Heart-rate and SpO2 policy checks
-Security alerts for abnormal telemetry
-Docker-based network isolation
-Structured security logging
-Automated Go testing
-Reproducible local deployment
 
+- External security gateway for IoMT environments
+- Go-based gateway and policy engine
+- Medical-device telemetry simulation
+- JSON telemetry validation
+- Device identity validation
+- Heart-rate and SpO2 policy checks
+- Security alerts for abnormal telemetry
+- Docker-based network isolation
+- Structured security logging
+- Automated Go testing
+- Reproducible local deployment
 
 ## Technology Stack
-Go
-Python
-Docker
-Docker Compose
-Linux/Alpine
-YAML
-REST APIs
-Git and GitHub
+
+- Go
+- Python
+- Docker
+- Docker Compose
+- Linux / Alpine
+- YAML
+- REST APIs
+- Git and GitHub
 
 ## Project Structure
+
 IoMT-Shield/
 ├── gateway/
 ├── devices/
@@ -83,16 +80,18 @@ IoMT-Shield/
 ├── LICENSE
 └── README.md
 
-
 ## Running the Project
 
 Clone the repository:
+
 git clone https://github.com/tanwarmukul96-cyber/IoMT-Shield.git
 cd IoMT-Shield
- Start the environment:
+
+Start the environment:
+
 docker compose up --build
 
-## Check running services:
+Check running services:
 
 docker compose ps
 
@@ -104,8 +103,8 @@ Stop the environment:
 
 docker compose down
 
-
 ## Example Telemetry
+
 A valid telemetry request:
 
 {
@@ -114,7 +113,7 @@ A valid telemetry request:
   "spo2": 98
 }
 
-A normal request is allowed to reach the simulated medical service.
+Normal telemetry is allowed to reach the simulated medical service.
 
 Abnormal telemetry, such as an unrealistic heart-rate value, generates a security alert and is recorded by the gateway.
 
@@ -124,8 +123,8 @@ Example:
 Action=ALERT
 Reason=Heart-rate value outside configured range
 
-
 ## Testing
+
 Run the gateway tests:
 
 go test ./...
@@ -138,21 +137,19 @@ The current test environment uses simulated medical devices and services and is 
 
 ## Future Direction
 
-The long-term goal of IoMT-Shield is to investigate a safety-aware security architecture capable of addressing modern attacks against legacy IoMT environments.
-
 Planned areas include:
 
-DICOM and HL7-aware inspection
-TLS-aware traffic analysis
-Behavioural anomaly detection
-Machine-learning-based risk scoring
-Cross-node attack correlation
-MITRE ATT&CK mapping
-eBPF/XDP-based packet enforcement
-Dynamic network quarantine
-Micro-segmented device policies
-Performance and latency benchmarking
-Safety-aware automated response
+- DICOM and HL7-aware inspection
+- TLS-aware traffic analysis
+- Behavioural anomaly detection
+- Machine-learning-based risk scoring
+- Cross-node attack correlation
+- MITRE ATT&CK mapping
+- eBPF/XDP-based packet enforcement
+- Dynamic network quarantine
+- Micro-segmented device policies
+- Performance and latency benchmarking
+- Safety-aware automated response
 
 These capabilities are part of the development roadmap and are not represented as fully implemented in the current release.
 
@@ -168,4 +165,8 @@ Mukul Tanwar
 
 B.Tech Electronics and Communication Engineering
 
-Cybersecurity and Network Security
+Cybersecurity and Network Security 
+
+
+
+          
