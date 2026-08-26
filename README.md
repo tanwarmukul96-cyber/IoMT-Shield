@@ -42,7 +42,7 @@ Simulated Medical Service
 Patient Monitor
 Simulator
 
-```md
+```
 
 ## Current Capabilities
 
