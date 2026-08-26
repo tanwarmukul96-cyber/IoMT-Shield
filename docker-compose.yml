@@ -1,0 +1,37 @@
+services:
+
+  gateway:
+    build:
+      context: ./gateway
+    container_name: iomt-shield-gateway
+    ports:
+      - "8080:8080"
+    networks:
+      - hospital-network
+      - medical-network
+    depends_on:
+      - medical-service
+
+  patient-monitor:
+    build:
+      context: ./devices/patient-monitor
+    container_name: iomt-patient-monitor
+    depends_on:
+      - gateway
+    networks:
+      - medical-network
+
+  medical-service:
+    build:
+      context: ./devices/medical-service
+    container_name: iomt-medical-service
+    networks:
+      - medical-network
+
+networks:
+  hospital-network:
+    driver: bridge
+
+  medical-network:
+    driver: bridge
+    internal: true

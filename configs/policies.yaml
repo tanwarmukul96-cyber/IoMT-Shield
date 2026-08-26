@@ -1,0 +1,16 @@
+medical_policy:
+  allowed_methods:
+    - POST
+
+  telemetry:
+    heart_rate:
+      min: 20
+      max: 250
+
+    spo2:
+      min: 50
+      max: 100
+
+  actions:
+    invalid_schema: BLOCK
+    invalid_range: ALERT
