@@ -159,13 +159,6 @@ IoMT-Shield is a research and cybersecurity engineering project using simulated 
 
 It is not a certified medical device or clinical security product and must not be deployed on real medical equipment or production healthcare infrastructure without appropriate safety, regulatory, and security validation.
 
-## Author
-
-Mukul Tanwar
-
-B.Tech Electronics and Communication Engineering
-
-Cybersecurity and Network Security 
 
 
 
